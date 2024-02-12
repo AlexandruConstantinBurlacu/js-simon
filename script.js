@@ -10,6 +10,33 @@
 // Esiste un oggetto JS in grado di gestire le date?
 // Esistono dei metodi per trasformare una data in millisecondi?
 
-const targetDate = new Date();
-targetDate.setDay(1);
-targetDate.set
+const secondsElement = document.querySelector("#seconds");
+const minutesElement = document.querySelector("#minutes");
+const hoursElement = document.querySelector("#hours");
+const daysElement = document.querySelector("#days");
+
+
+
+
+const targetNow = new Date();
+const targetNowTime = targetNow.getTime();
+
+
+const finalDate = new Date("02-12-2024 9:30:00");
+const finalDateTime = finalDate.getTime();
+console.log(finalDate);
+
+const secondsLeft = (finalDateTime / 1000) % 60;
+
+const minutesLeft = Math.floor(finalDateTime / (1000 * 60) % 60);
+
+const hoursLeft = Math.floor(finalDateTime / (1000 * 60 * 60) % 24) + 1;
+
+const daysLeft = Math.floor(finalDateTime / (1000 * 60 * 60 * 24) % 365);
+
+
+secondsElement.innerText = secondsLeft;
+minutesElement.innerText = minutesLeft;
+hoursElement.innerText = hoursLeft;
+daysElement.innerText = daysLeft;
+
